@@ -1,0 +1,51 @@
+# ============================================================
+# admin/.htaccess
+# Purpose: Light hardening for the admin area on shared Apache.
+# - Keep this directory out of search indexes.
+# - Disable directory listings.
+# - Only allow the intended entrypoint + static assets to be
+#   requested directly; block everything else.
+# - Send conservative security headers.
+# All real auth is enforced server-side via the PHP session;
+# this file is defence-in-depth only.
+# ============================================================
+
+# No directory browsing.
+Options -Indexes -MultiViews
+
+# Default document.
+DirectoryIndex index.php
+
+# ---- Security headers (best-effort; ignored if mod_headers off) ----
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "DENY"
+    Header set Referrer-Policy "no-referrer"
+    Header set X-Robots-Tag "noindex, nofollow"
+    # Admin pages must never be cached by shared proxies.
+    <FilesMatch "\.(php|html)$">
+        Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+    </FilesMatch>
+</IfModule>
+
+# ---- Block dotfiles (e.g. this .htaccess) from being served ----
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# ---- Only allow known files to be requested directly ----
+# index.php (shell), app.js, style.css. Everything else 404s.
+<IfModule mod_authz_core.c>
+    <FilesMatch "^(index\.php|app\.js|style\.css)$">
+        Require all granted
+    </FilesMatch>
+</IfModule>
+
+# Fallback for older Apache (2.2 syntax).
+<IfModule !mod_authz_core.c>
+    Order Deny,Allow
+    Deny from all
+    <FilesMatch "^(index\.php|app\.js|style\.css)$">
+        Allow from all
+    </FilesMatch>
+</IfModule>

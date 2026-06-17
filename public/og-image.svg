@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <defs>
+    <radialGradient id="glow" cx="100%" cy="24%" r="70%">
+      <stop offset="0%" stop-color="#FF4D00" stop-opacity="0.4" />
+      <stop offset="55%" stop-color="#FF4D00" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="1200" fill="#0E0D0A" />
+  <rect width="1200" height="1200" fill="url(#glow)" />
+
+  <!-- content lives in the centred 1200x630 band (y 285..915) -->
+
+  <!-- kicker -->
+  <g transform="translate(80, 392)">
+    <rect x="0" y="-6" width="44" height="2" fill="#FF4D00" />
+    <text x="62" y="0" font-family="'Courier New', monospace" font-size="21"
+          letter-spacing="2.5" fill="#F3EEE4" opacity="0.72">BIMASHA ZAMAN — FULL-STACK &amp; AI ENGINEER</text>
+  </g>
+
+  <!-- headline -->
+  <text x="78" y="548" font-family="Georgia, 'Times New Roman', serif" font-size="78"
+        font-weight="500" fill="#F3EEE4">I build AI that</text>
+  <text x="78" y="642" font-family="Georgia, 'Times New Roman', serif" font-size="78"
+        font-weight="500">
+    <tspan font-style="italic" fill="#FF4D00">survives</tspan><tspan fill="#F3EEE4"> production.</tspan>
+  </text>
+
+  <!-- footer -->
+  <g transform="translate(80, 824)">
+    <circle cx="7" cy="-6" r="7" fill="#2fd07a" />
+    <text x="26" y="0" font-family="'Courier New', monospace" font-size="21"
+          letter-spacing="1.5" fill="#F3EEE4" opacity="0.72">Open to select projects &amp; roles · Dhaka, working worldwide</text>
+  </g>
+</svg>

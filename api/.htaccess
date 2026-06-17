@@ -1,0 +1,30 @@
+# api/.htaccess — protect secrets and internal includes from direct web access.
+#
+# The browser only ever needs to reach the *endpoint* scripts
+# (content.php, contact.php, auth/*.php, admin/*.php). The shared includes
+# (config.php, db.php, helpers.php) must never be fetched directly, and
+# config.php in particular holds the DB password.
+
+# Deny direct HTTP access to config files and shared includes.
+<FilesMatch "^(config\.php|config\.example\.php|db\.php|helpers\.php)$">
+    # Apache 2.4+
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    # Apache 2.2 fallback
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Belt-and-suspenders: never serve any *.example.php or dotfiles.
+<FilesMatch "\.(example\.php|sql|md|log)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>

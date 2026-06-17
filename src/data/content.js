@@ -1,0 +1,389 @@
+/* ============================================================
+   All site copy lives here.
+   Edit text in this one file — components read from it.
+   Honest-by-default: only ship a number you can prove. The
+   // OWNER notes mark the few places to fill in once verified.
+   ============================================================ */
+
+export const meta = {
+  name: "Bimasha Zaman",
+  email: "bimashazaman1234@gmail.com",
+  linkedin: "https://www.linkedin.com/in/bimasha-zaman",
+  github: "https://github.com/bimashazaman",
+  location: "Dhaka, Bangladesh · US / EU / Asia time zones",
+};
+
+export const nav = [
+  { label: "About", href: "#about" },
+  { label: "Work", href: "#work" },
+  { label: "Stack", href: "#stack" },
+  { label: "Journey", href: "#journey" },
+  { label: "Contact", href: "#contact" },
+];
+
+export const hero = {
+  available: "Open to select projects & roles",
+  kicker: "Full-stack & AI engineer · Dhaka, working worldwide",
+  // headline rendered with emphasis on "survive" in the Hero component
+  sub: "Most AI features look amazing in a demo, then fall apart the moment real customers use them. I've spent ten years building software that holds up — and I help teams turn their AI ideas into products people trust and pay for.",
+};
+
+export const ticker = [
+  { tag: "Now", text: "Senior engineer · Life Coach Hub (US)" },
+  { tag: "Now", text: "Engineering Bizam — live professional networking platform" },
+  { tag: "Building", text: "Keeprate — AI returns reduction for Shopify (pre-launch)" },
+  { tag: "Running", text: "Autonomous code-maintenance pipeline, every weekday" },
+];
+
+export const stats = [
+  { value: 10, suffix: "y", label: "Shipping software people rely on" },
+  { value: 8, suffix: "", label: "Countries I've shipped products for" },
+  { value: 3, suffix: "", label: "Products in flight right now" },
+  // hl renders the number in accent — the site's favorite stat
+  { value: 0, suffix: "", label: "Claims on this site I can't back up", hl: true },
+];
+
+// Credibility strip — real teams/products shipped for (shown as a quiet wordmark row).
+export const clients = {
+  label: "A few of the teams I've shipped for",
+  names: [
+    "Life Coach Hub",
+    "Bizam",
+    "Evolov",
+    "Gjiganti",
+    "AdmissionPedia",
+    "My SaaS Team",
+  ],
+};
+
+export const about = {
+  // <em> wraps the accented clause
+  lede: [
+    "Hi, I'm Bimasha — a full-stack engineer who makes AI ",
+    { em: "actually work" },
+    " once real customers start using it.",
+  ],
+  body: [
+    "For ten years I've built the unglamorous software businesses actually run on — billing and payments, sign-ups and logins, scheduling, dashboards, and the APIs tying it all together. The things that simply can't break. That's exactly the discipline AI needs now: anyone can build a flashy demo in a weekend, but making it reliable enough to put your name and price on it is the hard part. That's the part I do.",
+    "In plain terms: I take AI from “cool demo” to “customers happily pay for it.” I work across the whole product, explain everything without the jargon, and never put a claim on this page I can't prove.",
+  ],
+  // mini profile card beside the text
+  profile: {
+    name: "Bimasha Zaman",
+    role: "Full-stack & AI engineer",
+    initials: "BZ",
+    // Headshot at public/portrait.jpg. Falls back to the monogram if missing.
+    photo: "/portrait.jpg",
+  },
+  facts: [
+    { k: "What I do", v: "Take AI features from shaky prototype to reliable, revenue-ready product" },
+    { k: "Best for", v: "Founders, SaaS teams & anyone with an AI feature stuck at “almost”" },
+    { k: "Open to", v: "Select freelance projects and senior engineering roles" },
+    { k: "Toolkit", v: "Laravel · React/Next.js · Node · AI agents · AWS/DigitalOcean" },
+    { k: "Based", v: "Dhaka, Bangladesh · US / EU / Asia time zones" },
+  ],
+};
+
+export const services = [
+  {
+    idx: "①",
+    title: "Your AI feature, finished",
+    lead: "You have an AI prototype that wowed everyone — but it isn't safe to launch yet.",
+    body: "Maybe it gives odd answers on real data, or nobody can tell how often it's right. I take it the rest of the way: I prove that it works, add alerts for when it doesn't, and harden it until it's something you can confidently put in front of paying customers.",
+  },
+  {
+    idx: "②",
+    title: "AI that gives your team hours back",
+    lead: "Quiet automation that does real work in the background — so your people don't have to.",
+    body: "One I built checks a live codebase every weekday: it finds bugs, writes the fixes for a human to approve, files the tickets, and emails a short briefing. I build the same kind of dependable helper for your team, scoped as a fixed-price project so you know exactly what you're getting.",
+  },
+  {
+    idx: "③",
+    title: "A product that doesn't break",
+    lead: "Under every AI feature is an ordinary product that simply has to work.",
+    body: "Payments, scheduling, logins, accounts — the unglamorous parts everyone notices the moment they break. Ten years building exactly these systems for real, paying traffic is the foundation everything else here stands on.",
+  },
+];
+
+export const engagements = {
+  intro: "Project, embedded, or just a second opinion — pick the one that fits.",
+  items: [
+    {
+      k: "01",
+      title: "Fixed-scope project",
+      body: "A clear deliverable, price, and timeline agreed up front. Best when you know what you need built — an AI feature finished, an agent shipped, or a shaky product made solid.",
+    },
+    {
+      k: "02",
+      title: "Embedded with your team",
+      body: "Senior hands inside your team a few days a week — building alongside your engineers, reviewing code, and quietly raising the bar on reliability.",
+    },
+    {
+      k: "03",
+      title: "Advisory & audits",
+      body: "A focused review or a single call to unblock you: is this idea sound, is it safe to launch, what would I do next? Short, sharp, and honest.",
+    },
+  ],
+};
+
+export const cases = [
+  {
+    cn: "Case 01",
+    title: "Modernizing a live coaching platform",
+    sub: "Life Coach Hub · Laravel + React · United States",
+    takeaway:
+      "In short: I keep a platform thousands of coaches rely on running smoothly — and ship new things without breaking the parts that handle their money.",
+    body: [
+      "Life Coach Hub is a coaching platform that thousands of practitioners run their businesses on. Like any platform that's been live for years, it carries history: old code, old decisions, and a billing system where every bug has a dollar value and a frustrated customer attached.",
+      "There isn't a corner of this platform I haven't worked in. Frontend, backend, database, infrastructure, releases. Rebuilding scheduling, billing, and session-credit logic. Running security audits. Hunting the kind of bugs that only show up in production payment flows, where “mostly correct” isn't a thing. When something breaks anywhere in the stack, it tends to find its way to me.",
+      "I also changed how the team tests, bringing in AI tooling that generates acceptance criteria and test plans, so releases reach paying coaches with fewer surprises.",
+    ],
+    // OWNER: when you have one verified number (e.g. measured drop in billing
+    // support tickets), add a sentence here. Never invent one.
+    tags: ["Laravel", "React", "Stripe", "Billing systems", "Security audits", "AI-assisted QA"],
+  },
+  {
+    cn: "Case 02",
+    live: true, // renders the pulsing "Live" chip — true because bizam.net is live
+    title: "Engineering a live professional networking platform",
+    sub: "Bizam · MERN · MongoDB Atlas · DigitalOcean",
+    takeaway:
+      "In short: one engineer, a whole live product — and you can click through and use it today.",
+    body: [
+      "Bizam is a live professional networking platform, and I'm the engineering behind all of it. React on the front, Node and Express behind it, MongoDB Atlas underneath, running on DigitalOcean. Features, data layer, API, deployments, and the infrastructure hardening that locked down the platform's network exposure and database access. One engineer, whole platform.",
+      "It's live right now. You can click through and use it. That's the only kind of portfolio link I think is worth showing.",
+    ],
+    // OWNER: confirm with the client which security details may be stated publicly.
+    tags: ["React", "Node / Express", "MongoDB Atlas", "DigitalOcean", "Infra hardening"],
+    link: { label: "Visit the live product → bizam.net", href: "https://bizam.net" },
+  },
+  {
+    cn: "Case 03",
+    title: "An autonomous code-maintenance pipeline",
+    sub: "Built on Bizam · AI agents · runs every weekday",
+    takeaway:
+      "In short: it's like a careful senior engineer reviewing your product every morning — without hiring one.",
+    body: [
+      "Every weekday morning, an AI system I designed goes through Bizam's codebase. It runs the tests, boots the app, looks for real bugs, drafts fixes as pull requests on isolated branches, files and updates the Jira tickets, and emails me a briefing. Everything is capped and sandboxed, so a human reviews every change before it merges.",
+      "For a client, this is like having a careful senior engineer review your product every single morning, without hiring one. It's also the clearest picture of how I think about AI: autonomy where it's safe, human judgment where it matters.",
+    ],
+    tags: ["AI agents", "CI / test suite", "Draft PRs", "Jira automation", "Sandboxed"],
+  },
+];
+
+export const workIndex = {
+  kicker: "And the longer list",
+  lede: "Three case studies can't hold ten years. Fintech, marketplaces, edtech, SaaS, social — here's more of what I've shipped.",
+  rows: [
+    { nm: "Evolov", ds: "Talent marketplace matching high-caliber people with growth-stage teams. Next.js and Django rebuild.", lc: "Norway" },
+    { nm: "Gjiganti", ds: "Cloud-native marketplace engineering with serious PostgreSQL depth.", lc: "Finland" },
+    { nm: "AdmissionPedia", ds: "EdTech platform simplifying university admissions for students worldwide. Next.js and Laravel.", lc: "India" },
+    { nm: "My SaaS Team", ds: "Engineering across six product squads in React, Next.js, and Python, with shared design systems and delivery standards.", lc: "Australia" },
+    { nm: "PixGround", ds: "Creative asset platform with high-volume browsing and automated publication flows.", lc: "Web" },
+    { nm: "Fineas", ds: "Personal finance tooling that blends automation with analytics people can actually read.", lc: "Web" },
+  ],
+};
+
+export const spotlight = {
+  chip: "Pre-launch",
+  title: "Keeprate",
+  body: [
+    "An AI app for Shopify merchants that cuts product return rates by working out why customers send things back, then fixing the causes upstream: sizing guidance, listing copy, fit data.",
+    "Building my own product keeps me sharp and keeps me honest. Every decision here costs my own time and money, which is exactly the weight I bring to decisions made with yours.",
+  ],
+  solo: "Building it solo — product, code & infrastructure",
+  // OWNER: add "I write about what I learn building it → [link]" only once you
+  // actually publish. No user counts or revenue claims until true.
+};
+
+export const stack = [
+  {
+    group: "AI & Agents",
+    items: [
+      "Agentic workflows & orchestration",
+      "Claude / LLM API integration",
+      "RAG pipelines",
+      "Evals & LLM observability",
+      "Prompt & tool design",
+      "AI security hardening",
+    ],
+  },
+  {
+    group: "Backend & Data",
+    items: [
+      "Laravel / PHP",
+      "Node.js / Express",
+      "MySQL & PostgreSQL",
+      "MongoDB Atlas",
+      "REST & GraphQL APIs",
+      "Stripe & payment flows",
+    ],
+  },
+  {
+    group: "Frontend",
+    items: [
+      "React & Next.js",
+      "TypeScript",
+      "React Native",
+      "Tailwind CSS",
+      "Design-system discipline",
+      "Accessibility & performance",
+    ],
+  },
+  {
+    group: "Infra & Delivery",
+    items: [
+      "AWS & DigitalOcean",
+      "Nginx, deployment pipelines",
+      "CI, testing & smoke checks",
+      "Monitoring & incident habits",
+      "Security audits",
+      "Git, Jira, agile delivery",
+    ],
+  },
+];
+
+export const journey = [
+  {
+    year: "2013",
+    title: "The first build",
+    role: "Dhaka, Bangladesh",
+    body: "Took apart a family laptop, taught myself HTML, and put classmates' stories online so their voices reached past the classroom. Everything since has been a longer version of the same instinct: build the thing, ship it, see who it helps.",
+  },
+  {
+    year: "2015 — 2022",
+    title: "Freelance & early-stage work",
+    role: "Bangladesh · Tech Expert community",
+    body: "Client by client, I learned how products get made when budgets are small and the stakes are personal. Along the way I mentored new developers through the Tech Expert community, which taught me how to explain hard things simply. I still use that every day.",
+  },
+  {
+    year: "2022 — 2023",
+    title: "The contract years",
+    role: "Independent · Finland, Norway, India, Armenia",
+    body: "Five product companies in fintech, marketplaces, edtech, and gaming. Senior and lead contract roles, often running in parallel. A compressed education in how very different teams build, argue, and ship.",
+  },
+  {
+    year: "2023 — present",
+    title: "Life Coach Hub",
+    role: "Senior Full-Stack Engineer · United States",
+    body: "Modernizing a production coaching platform that real businesses depend on, and changing how the team verifies releases with AI-assisted testing.",
+  },
+  {
+    // OWNER: adjust start year + set exact title
+    year: "2024 — present",
+    title: "Bizam",
+    role: "Full-Stack Engineer · bizam.net",
+    body: "End-to-end engineering for a live networking platform, plus the autonomous AI pipeline that watches the codebase every day.",
+  },
+  {
+    year: "2025 — present",
+    title: "Keeprate",
+    role: "Founder · pre-launch",
+    body: "My own AI product, built end to end. The strongest test of everything the last decade taught me.",
+  },
+];
+
+// Each row is an array of segments; { b: true } marks the accented phrase.
+export const process = [
+  [
+    { t: "I start with the business question, not the technical one. What does this need to do, " },
+    { t: "in numbers?", b: true },
+  ],
+  [
+    { t: "I prototype the risky part first, so we find out " },
+    { t: "cheaply", b: true },
+    { t: " whether the idea survives real data." },
+  ],
+  [
+    { t: "Reliability isn't bolted on at the end. Testing, monitoring, and security go in " },
+    { t: "from day one.", b: true },
+  ],
+  [
+    { t: "And you'll always know where things stand. I overcommunicate " },
+    { t: "on purpose.", b: true },
+  ],
+];
+
+export const voices = [
+  // OWNER: confirm permission + add role & company for each name before
+  // publishing. Cut any that can't be verified.
+  {
+    quote: "Bimasha turned a moving target into a revenue-ready platform — shipping fast without sacrificing stability.",
+    who: "Simon Ogilvie-Lee",
+  },
+  {
+    quote: "She reframed our requirements into outcomes leadership could trust, then shipped at a tempo our partners loved.",
+    who: "Florian Uhlmann",
+  },
+  {
+    quote: "Clear communication, disciplined delivery, and complex releases landed ahead of schedule.",
+    who: "Rose Malley",
+  },
+];
+
+export const faq = {
+  intro:
+    "A few things you're probably wondering but too polite to ask. Here they are, straight.",
+  items: [
+    {
+      q: "Do you actually know AI, or just say “AI” a lot?",
+      a: "Fair — half the internet does the latter. I ship the real thing: an AI system reviews my own code every morning while I drink my tea. Ask me anything technical and I'll answer in plain English.",
+    },
+    {
+      q: "What happens when something breaks?",
+      a: "It will, eventually — all software does. The difference is I see it coming, tell you fast, and fix it faster. No disappearing act, no finger-pointing.",
+    },
+    {
+      q: "I'm not technical. Will I understand a word you say?",
+      a: "Every word. I've explained “what's a database” and deep AI internals in the same week. You bring the problem; I'll bring the plain English.",
+    },
+    {
+      q: "Are you actually available, or is that just on the website?",
+      a: "Right now, yes — for a couple of projects. The day that changes, this page will say so. I won't pretend I'm free when I'm not.",
+    },
+  ],
+};
+
+export const contact = {
+  // <it> wraps the accented word
+  headline: [{ t: "Tell me what you're trying to " }, { it: "ship." }],
+  pitch:
+    "Tell me about your product and where AI fits in — even if that's just “we haven't started and don't know how.” Rough notes are welcome. You're writing to a person, not a pipeline.",
+  next: {
+    label: "What happens next",
+    steps: [
+      "You send a few sentences about what you're building. Rough is fine.",
+      "I read it myself and reply within a day with honest, specific thoughts — not a canned pitch.",
+      "If it's a fit, we scope a small first step. If it isn't, I'll say so and point you to someone who is.",
+    ],
+  },
+};
+
+/* ============================================================
+   Bundled fallback (the "never break" safety net).
+   The site fetches live content from the API at runtime; if that
+   fails (DB/API down, bad deploy), the app renders THIS instead of
+   going blank. The CMS is also seeded from exactly these values, so
+   day-one DB content === what you see here. The key order/names here
+   are the canonical 18 sections — keep them in sync with the API.
+   ============================================================ */
+export const defaults = {
+  meta,
+  nav,
+  hero,
+  ticker,
+  stats,
+  clients,
+  about,
+  services,
+  engagements,
+  cases,
+  workIndex,
+  spotlight,
+  stack,
+  journey,
+  process,
+  voices,
+  faq,
+  contact,
+};

@@ -1,0 +1,85 @@
+name: Build and Deploy to Hostinger
+
+# When does this run?
+on:
+  # 1. Every time you push code to the main branch (the normal path).
+  push:
+    branches: [main]
+  # 2. A manual "Run workflow" button in the GitHub Actions tab,
+  #    handy for re-deploying without making a new commit.
+  workflow_dispatch:
+
+# Only let ONE deploy run at a time. If you push twice in quick
+# succession, the older in-flight run is cancelled so two FTP uploads
+# never race each other and leave the server in a half-written state.
+concurrency:
+  group: deploy-hostinger
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Pull down the repository source.
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Install Node 20 and turn on npm's dependency cache so installs
+      # are fast on repeat runs.
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # Clean, reproducible install straight from package-lock.json.
+      - name: Install dependencies
+        run: npm ci
+
+      # Regenerate the committed safe-fallback seed (api/content.seed.json)
+      # from the current source before building, so the shipped bundle and
+      # the seed always agree.
+      - name: Export content seed
+        run: node scripts/export-content.mjs
+
+      # Build the Vite site. Output lands in dist/.
+      - name: Build site
+        run: npm run build
+
+      # Stage the PHP backend INTO the build folder. The FTP step uploads
+      # dist/ as the web root, so copying api/ and admin/ into dist/ means
+      # one upload carries the static site + the API + the admin panel.
+      - name: Stage PHP api and admin into dist
+        run: |
+          cp -r api dist/api
+          cp -r admin dist/admin
+
+      # Mirror dist/ up to Hostinger over FTP.
+      # Only files that changed are transferred (the action keeps a state
+      # file on the server), so deploys are fast after the first one.
+      - name: Deploy to Hostinger via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          # FTP credentials live in GitHub repo secrets — never in this file.
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+
+          # What to upload (the staged build) and where it lands on the server.
+          # IMPORTANT: keep the trailing slashes.
+          # Set server-dir to your web root. On Hostinger Single that is
+          # usually public_html/ for the primary domain. If this site lives
+          # in a subfolder/addon domain, change it (e.g. public_html/portfolio/).
+          local-dir: dist/
+          server-dir: public_html/   # <-- CHANGE if your web root differs
+
+          # Files we must NEVER overwrite or delete on the server. These are
+          # created once on the server and are intentionally gitignored, so
+          # they don't exist in dist/ — excluding them stops the action from
+          # treating them as "removed locally" and deleting them server-side.
+          exclude: |
+            **/config.php
+            **/install.php
+            **/.git*
+            **/node_modules/**

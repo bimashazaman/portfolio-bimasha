@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# OWNER: update the domain below to your deployed URL
+Sitemap: https://bimashazaman.com/sitemap.xml
